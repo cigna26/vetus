@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Plataforma Adulto Mayor</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f0f2f5; }
+    header { background: #4a90e2; color: white; padding: 1em; text-align: center; }
+    nav { background: #fff; display: flex; justify-content: space-around; padding: 1em; border-bottom: 1px solid #ccc; }
+    nav button { padding: 0.5em 1em; border: none; background: #4a90e2; color: white; cursor: pointer; border-radius: 5px; }
+    main { padding: 2em; }
+    .section { display: none; }
+    .active { display: block; }
+    .chat { background: #fff; padding: 1em; border-radius: 10px; max-width: 500px; margin: auto; box-shadow: 0 0 10px #ccc; }
+    .chat p { background: #e0e0e0; padding: 0.5em; border-radius: 8px; margin: 0.5em 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Plataforma de Apoyo a Adultos Mayores</h1>
+</header>
+
+<nav>
+  <button onclick="showSection('telemedicina')">Telemedicina</button>
+  <button onclick="showSection('ia')">Seguimiento IA</button>
+  <button onclick="showSection('social')">Red Social</button>
+</nav>
+
+<main>
+  <div id="telemedicina" class="section active">
+    <h2>Consultas Médicas Remotas</h2>
+    <p>Solicita una consulta en línea con un médico:</p>
+    <button onclick="alert('Consulta solicitada. Un médico se contactará pronto.')">Solicitar Consulta</button>
+  </div>
+
+  <div id="ia" class="section">
+    <h2>Seguimiento Preventivo con IA</h2>
+    <div class="chat" id="iaChat">
+      <p><strong>IA:</strong> Hola, ¿cómo te sientes hoy?</p>
+    </div>
+    <input type="text" id="userInput" placeholder="Escribe tu respuesta..." onkeypress="handleInput(event)">
+  </div>
+
+  <div id="social" class="section">
+    <h2>Red Social Intergeneracional</h2>
+    <p>Conecta con voluntarios jóvenes para recibir compañía y ayuda:</p>
+    <button onclick="alert('Te hemos conectado con un voluntario llamado Martín.')" >Conectar con Voluntario</button>
+  </div>
+</main>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  function handleInput(e) {
+    if (e.key === 'Enter') {
+      const input = document.getElementById('userInput');
+      const text = input.value.trim();
+      if (text !== '') {
+        const chat = document.getElementById('iaChat');
+        chat.innerHTML += `<p><strong>Tú:</strong> ${text}</p>`;
+        setTimeout(() => {
+          chat.innerHTML += `<p><strong>IA:</strong> Gracias por compartir. Recuerda tomar tus medicamentos.</p>`;
+        }, 1000);
+        input.value = '';
+      }
+    }
+  }
+</script>
+
+</body>
+</html>

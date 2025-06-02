@@ -3,29 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Plataforma Adulto Mayor</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f0f2f5; }
-    header { background: #4a90e2; color: white; padding: 1em; text-align: center; }
-    nav { background: #fff; display: flex; justify-content: space-around; padding: 1em; border-bottom: 1px solid #ccc; }
-    nav button { padding: 0.5em 1em; border: none; background: #4a90e2; color: white; cursor: pointer; border-radius: 5px; }
-    main { padding: 2em; }
-    .section { display: none; }
-    .active { display: block; }
-    .chat { background: #fff; padding: 1em; border-radius: 10px; max-width: 500px; margin: auto; box-shadow: 0 0 10px #ccc; }
-    .chat p { background: #e0e0e0; padding: 0.5em; border-radius: 8px; margin: 0.5em 0; }
-  </style>
+
+<link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
 
 <header>
-  <h1>Plataforma de Apoyo a Adultos Mayores</h1>
-</header>
+  <!-- Titulo en pagina -->
+  <div>
+    <h1>Plataforma de Apoyo a Adultos Mayores</h1>
+  </div>
 
-<nav>
-  <button onclick="showSection('telemedicina')">Telemedicina</button>
-  <button onclick="showSection('ia')">Seguimiento IA</button>
-  <button onclick="showSection('social')">Red Social</button>
-</nav>
+  <!-- Navbar -->
+  <div>
+    <nav>
+      <button onclick="showSection('telemedicina')">Telemedicina</button>
+      <button onclick="showSection('ia')">Seguimiento IA</button>
+      <button onclick="showSection('social')">Red Social</button>
+    </nav>
+  </div>
+</header>
 
 <main>
   <div id="telemedicina" class="section active">
@@ -49,27 +47,12 @@
   </div>
 </main>
 
-<script>
-  function showSection(id) {
-    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-  }
+<footer>
 
-  function handleInput(e) {
-    if (e.key === 'Enter') {
-      const input = document.getElementById('userInput');
-      const text = input.value.trim();
-      if (text !== '') {
-        const chat = document.getElementById('iaChat');
-        chat.innerHTML += `<p><strong>Tú:</strong> ${text}</p>`;
-        setTimeout(() => {
-          chat.innerHTML += `<p><strong>IA:</strong> Gracias por compartir. Recuerda tomar tus medicamentos.</p>`;
-        }, 1000);
-        input.value = '';
-      }
-    }
-  }
-</script>
+
+</footer>
+<!-- CONECCION SCRIPT JS -->
+<script src="main.js"></script>
 
 </body>
 </html>

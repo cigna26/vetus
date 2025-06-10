@@ -48,3 +48,94 @@ main {
   border-radius: 8px;
   margin: 0.5em 0;
 }
+
+
+/* BODY */
+.body__container{
+    width: 30%; /* Reduje el ancho al 70% (ajusta este valor) */
+    max-width: 800px;/* Ajusta este valor para el ancho máximo */
+
+    margin: 0 auto;
+    padding: 20px 50px 50px 50px;
+    margin-top: 50px;
+
+
+    /* Borde */
+    border-radius: 8px;
+    border: 1px solid #7f2222; /* Opcional: para visualizar */
+
+
+    /* Flexbox */
+    display: flex;
+    flex-direction: column; /* ¡Clave para apilar secciones! */
+    gap: 20px;/* Espacio entre secciones */
+
+}
+
+
+.titulo__h1, .formulario, .botones, .link{
+    text-align: center;
+    font-weight: bold;
+
+    /* Flexbox */
+    flex: 1;
+    min-width: 0;
+
+}
+
+
+.botones{
+    display: flex;
+    flex-direction: column; /* ¡Clave para apilar secciones! */
+    gap: 20px;/* Espacio entre secciones */
+
+    align-items: center; /* Centra los items en el eje transversal */
+
+}
+
+.botones button{
+    border-radius: 8px;
+    padding: 8px;
+    width: 200px;
+
+}
+
+.box{
+  padding: 8px;
+  border-radius: 8px;
+}
+
+
+
+/* ABOUT */
+/* Contenedor padre (compartido) */
+.footer__container {
+    width: 40%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #7f2222; /* Opcional: para visualizar */
+    margin-top: 50px;
+    border-radius: 8px;
+
+
+    /* Flexbox */
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+
+/* Estilos específicos para cada sección */
+.contacto, .about{
+    background: #fff;
+    padding: 15px;
+
+    /* Flexbox */
+    flex: 1;
+    min-width: 0;
+
+
+    overflow-wrap: break-word; /* Rompe palabras largas */
+
+}

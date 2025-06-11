@@ -1,21 +1,26 @@
 
 
+// Permite mostrar una sección específica del <main>
+// (como "Telemedicina", "Seguimiento IA" o "Red Social") y ocultar las otras.
 function showSection(id) {
-    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-  }
+    document.querySelectorAll('.section').forEach(function(sec) {
+    sec.classList.remove('active');
+    });
 
-  function handleInput(e) {
-    if (e.key === 'Enter') {
-      const input = document.getElementById('userInput');
-      const text = input.value.trim();
-      if (text !== '') {
-        const chat = document.getElementById('iaChat');
-        chat.innerHTML += `<p><strong>Tú:</strong> ${text}</p>`;
-        setTimeout(() => {
-          chat.innerHTML += `<p><strong>IA:</strong> Gracias por compartir. Recuerda tomar tus medicamentos.</p>`;
-        }, 1000);
-        input.value = '';
-      }
-    }
+    document.getElementById(id).classList.add('active');
+}
+
+
+
+
+document.getElementById("selectorPerfil").addEventListener("change", function () {
+  // Oculta todas las secciones
+  document.querySelectorAll(".perfil-section").forEach(div => {
+    div.style.display = "none";
+  });
+  // Muestra la seleccionada
+  const perfil = this.value;
+  if (perfil) {
+    document.getElementById(perfil).style.display = "block";
   }
+});

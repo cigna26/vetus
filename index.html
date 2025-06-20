@@ -7,6 +7,8 @@
 
   <link rel="stylesheet" href="styles.css">
 
+
+
 </head>
 
 
@@ -21,29 +23,31 @@
 
 
   <div id="adulto-mayor" class="perfil-section">
-
     <header>
       <!-- Titulo en pagina -->
-      <div>
+      <footer ass="container-nav">
         <h1>VETUS</h1>
-      </div>
-
+        <p>Tu mejor compañia</p>
+      </footer>
 
       <!-- Navbar -->
       <div>
         <nav>
-          <button onclick="showSection('telemedicina')">Telemedicina</button>
-          <button onclick="showSection('ia')">Seguimiento IA</button>
-          <button onclick="showSection('social')">Red Social</button>
+          <button class="btn" onclick="showSection('telemedicina')">Telemedicina</button>
+          <button class="btn" onclick="showSection('ia')">Seguimiento IA</button>
+          <button class="btn" onclick="showSection('social')">Red Social</button>
+          <button class="btn" onclick="showSection('monitoreo')">Monitoreo</button>
+          <button class="btn" onclick="showSection('actividades')">Actividades</button>
+
         </nav>
       </div>
     </header>
-
+    <!-- Secciones segun opcion de mostrar -->
     <main>
       <div id="telemedicina" class="section active">
         <h2>Consultas Médicas Remotas</h2>
         <p>Solicita una consulta en línea con un médico:</p>
-        <button onclick="alert('Consulta solicitada. Un médico se contactará pronto.')">Solicitar Consulta</button>
+        <a href="https://telesalud.gob.cl/solicitud" target="_blank">Solicitar Consulta</a>
       </div>
 
       <div id="ia" class="section">
@@ -54,10 +58,56 @@
         <input type="text" id="userInput" placeholder="Escribe tu respuesta..." onkeypress="handleInput(event)">
       </div>
 
+      <div id="monitoreo" class="section">
+        <h2>Monitor de Salud</h2>
+        <div class="health-widgets">
+          <div class="widget">
+            <h3>Registro de Signos</h3>
+            <form id="healthForm">
+              <label>Presión Arterial: <input type="text" placeholder="120/80"></label>
+              <label>Glucosa: <input type="number" placeholder="mg/dL"></label>
+              <label>Pulso: <input type="number" placeholder="lpm"></label>
+              <button type="button" class="btn" onclick="saveHealthData()">Guardar</button>
+            </form>
+            <button class="btn-text" onclick="showHealthHistory()">Ver historial</button>
+          </div>
+          <div class="widget">
+            <h3>Recordatorios</h3>
+            <ul id="reminderList">
+              <li>Tomar medicamento a las 08:00</li>
+              <li>Cita con cardiólogo mañana</li>
+            </ul>
+            <button class="btn" onclick="addReminder()">+ Agregar recordatorio</button>
+          </div>
+        </div>
+      </div>
+
       <div id="social" class="section">
         <h2>Red Social Intergeneracional</h2>
         <p>Conecta con voluntarios jóvenes para recibir compañía y ayuda:</p>
-        <button onclick="alert('Te hemos conectado con un voluntario llamado Martín.')">Conectar con Voluntario</button>
+        <button class="btn" onclick="alert('Te hemos conectado con un voluntario llamado Martín.')">Conectar con Voluntario</button>
+      </div>
+
+      <div id="actividades" class="section">
+        <h2>Actividades y Talleres</h2>
+        <div class="activities-grid">
+          <div class="activity-card" onclick="joinActivity('yoga')">
+            <!-- <img src="yoga-icon.png" alt="Yoga"> -->
+            <h3>Yoga Suave</h3>
+            <p>Lunes y Miércoles 10:00 AM</p>
+          </div>
+          <div class="activity-card" onclick="joinActivity('manualidades')">
+            <!-- <img src="crafts-icon.png" alt="Manualidades"> -->
+            <h3>Taller de Manualidades</h3>
+            <p>Martes 3:00 PM</p>
+          </div>
+          <div class="activity-card" onclick="joinActivity('memoria')">
+            <!-- <img src="brain-icon.png" alt="Ejercicios mentales"> -->
+            <h3>Ejercicios de Memoria</h3>
+            <p>Jueves 11:00 AM</p>
+          </div>
+        </div>
+        <button class="btn" onclick="showAllActivities()">Ver todas las actividades</button>
       </div>
     </main>
 
@@ -65,40 +115,72 @@
 
   <div id="voluntario" class="perfil-section">
     <header>
-      <nav>
-        <h1 style="color: black;">voluntarios</h1>
-      </nav>
+
+      <footer>
+        <h1>VOLUNTARIOS VETUS</h1>
+        <p>Conéctate. Acompaña. Transforma vidas.</p>
+      </footer>
+
+        <!-- Navbar -->
+        <div>
+          <nav>
+            <button class="btn" onclick="showSection('miperfil')">Mi perfil</button>
+            <button class="btn" onclick="showSection('misconexiones')">Mis conexiones</button>
+            <button class="btn" onclick="showSection('actividadesdisponibles')">Actividades Disponibles</button>
+            <button class="btn" onclick="showSection('reconocimientos')">Reconocimientos</button>
+
+          </nav>
+        </div>
     </header>
+
+    <main>
+      <div id="miperfil" class="section active">
+        <h2>Mi Perfil</h2>
+          <div class="user-info">
+            <!-- <img src="https://via.placeholder.com/80" alt="Foto perfil"> -->
+            <div>
+              <p><strong>Nombre:</strong> Juan Pérez</p>
+              <p><strong>Ciudad:</strong> Santiago</p>
+              <p><strong>Disponibilidad:</strong> Lunes a Viernes (18:00 - 20:00)</p>
+              <button class="btn">Editar Perfil</button>
+            </div>
+          </div>
+      </div>
+
+      <div id="misconexiones" class="section">
+        <h2>Mis Conexiones</h2>
+        <div class="connections">
+          <div class="activity-item">
+            <p><strong>Adulto mayor:</strong> Marta López</p>
+            <p><strong>Última interacción:</strong> 10 de junio</p>
+            <button class="btn">Iniciar videollamada</button>
+            <button class="btn">Registrar actividad</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="actividadesdisponibles" class="section">
+        <h2>Actividades Disponibles</h2>
+        <div class="activities">
+          <div class="activity-item">
+            <p><strong>Actividad:</strong> Enseñar a usar WhatsApp</p>
+            <p><strong>Adulto mayor:</strong> Pedro Rojas</p>
+            <p><strong>Horario solicitado:</strong> Sábado 11:00</p>
+            <button class="btn">Unirme</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="reconocimientos" class="section">
+        <h2>Reconocimientos</h2>
+        <p><strong>Horas acumuladas:</strong> 26 hrs</p>
+        <p><strong>Nivel:</strong> Voluntario Plata 🥈</p>
+      </div>
+
+    </main>
+
   </div>
 
-
-
-
-  <!-- <footer>
-      <div class="footer__container">
-          <section class="contacto">
-              <h2>Contactanos:</h2>
-
-              <ul>
-                  <a href="">Instagram</a>
-                  <a href="">GitHub</a>
-              </ul>
-          </section>
-
-          <section class="about">
-              <h2>Sobre nosotros:</h2>
-              <p>Lorem Ipsum es simplemente el texto de relleno de
-                  las imprentas y archivos de texto.
-                  Lorem Ipsum ha sido el texto de relleno
-                  estándar de las industrias desde el año 1500,
-                  cuando un impresor (N. del T. persona que se
-                  dedica a la imprenta) desconocido usó una galería
-                  de textos y los mezcló de tal manera
-              </p>
-          </section>
-
-      </div>
-  </footer> -->
 
   <!-- CONECCION SCRIPT JS -->
   <script src="main.js"></script>

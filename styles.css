@@ -3,10 +3,10 @@ body {
   margin: 0;
   padding: 0;
   background: #f0f2f5;
+  color: black;
 }
 header {
-  background: #4a90e2;
-  color: white;
+  color: black;
   padding: 1em;
   text-align: center;
 }
@@ -17,11 +17,11 @@ nav {
   padding: 1em;
   border-bottom: 1px solid #ccc;
 }
-nav button {
+button {
   padding: 0.5em 1em;
   border: none;
   background: #4a90e2;
-  color: white;
+  color: black;
   cursor: pointer;
   border-radius: 5px;
 }
@@ -128,18 +128,10 @@ main {
 
 }
 
-
 #selectorPerfil{
       padding: 10px;
-
-}
-
-/* ----------------------------------------------------------------------------- */
-
-
-
-
-
+      text-align: center;
+    }
 
 
 
@@ -150,35 +142,4 @@ main {
 
 
 
-/* ABOUT */
-/* Contenedor padre (compartido) */
-.footer__container {
-    width: 40%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #7f2222; /* Opcional: para visualizar */
-    margin-top: 50px;
-    border-radius: 8px;
-
-
-    /* Flexbox */
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-}
-
-
-/* Estilos específicos para cada sección */
-.contacto, .about{
-    background: #fff;
-    padding: 15px;
-
-    /* Flexbox */
-    flex: 1;
-    min-width: 0;
-
-
-    overflow-wrap: break-word; /* Rompe palabras largas */
-
-}
+/* ----------------------------------------------------------------------------- */
